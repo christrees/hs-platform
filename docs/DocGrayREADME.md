@@ -26,9 +26,11 @@ any time.
 - cryptsetup with full disk encryption
 - lvm volumes
     * proxmox likes lvm for snapshots, although I also used zfs
-- then using debootstrap, push a minimal Debian system.
+- then using debootstrap, push a minimal Debian system
+    * [debootstrap manpage](https://www.debian.org/releases/stretch/amd64/apds03.html.en)
 - then using `dpkg --set-selections < package.lst` push up the full
-enterprise system.
+enterprise system
+  
 
 ^^^^^ All of the above is performed from a basic PXE-booted Debian OS.
 
@@ -39,6 +41,8 @@ qmail instead of postgres, and add a lot of packages for kvm/vz management.
 The key to getting all of this working together is adding
 mdraid+lvm+cryptfs support to both Grub and to your initrd, which is
 easy to do with the `mkinitrd` helper scripts.
+- [mkinitrd man page](http://man7.org/linux/man-pages/man8/mkinitrd.8.html)
+- [dracut man page](https://dracut.wiki.kernel.org/index.php/Main_Page)
 
 ### Remote Datacenter protection
 If your deployment is in a remote datacenter, you can set up cryptofs
