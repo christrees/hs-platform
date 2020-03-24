@@ -35,14 +35,17 @@ enterprise system.
 The latter components allow for fine-tuning Proxmox.  For example, I use
 qmail instead of postgres, and add a lot of packages for kvm/vz management.
 
+## Key is adding support to grub and initrd
 The key to getting all of this working together is adding
 mdraid+lvm+cryptfs support to both Grub and to your initrd, which is
-easy to do with the mkinitrd helper scripts.
+easy to do with the `mkinitrd` helper scripts.
 
+### Remote Datacenter protection
 If your deployment is in a remote datacenter, you can set up cryptofs
 with one-time passwords for booting the system up when hands-on recover
 is required by the local staff.
 
+### Post installation vm instances
 That addresses the proxmox installation (but not the automated addition
 to the cluster -- noted) ... You also mentioned subsequent vm instances:
 
