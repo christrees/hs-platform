@@ -2,12 +2,13 @@
 
 Hey Chris,
 
-tl;dr -- I'd recommend doing PXE installs of base debian systems and
+### tl;dr
+I'd recommend doing PXE installs of base debian systems and
 doing a proxmox overlay afterward.  It's a lot easier to configure than
 depending on the proxmox installer, which was meant to be an idiot-proof
 install tool.
 
-
+## Detail
 As you correctly assessed, I had indeed done similar deployments.  My
 preference was to push a base Debian installation over PXE, which allows
 the customization of LVM volumes across mdraid-supported RAID arrays
@@ -20,13 +21,13 @@ It also afforded the opportunity to push all of this on top of a
 cryptographic root filesystem -- no usable data on any physical disk at
 any time.
 
-In summary - the base was PXE-based installation using:
-*) mdraid for arbitrary (useful) raid topologies
-*) cryptsetup with full disk encryption
-*) lvm volumes
-   [proxmox likes lvm for snapshots, although I also used zfs]
-*) then using debootstrap, push a minimal Debian system.
-*) then using `dpkg --set-selections < package.lst` push up the full
+## In summary - the base was PXE-based installation using:
+- mdraid for arbitrary (useful) raid topologies
+- cryptsetup with full disk encryption
+- lvm volumes
+    * proxmox likes lvm for snapshots, although I also used zfs
+- then using debootstrap, push a minimal Debian system.
+- then using `dpkg --set-selections < package.lst` push up the full
 enterprise system.
 
 ^^^^^ All of the above is performed from a basic PXE-booted Debian OS.
