@@ -43,6 +43,7 @@ mdraid+lvm+cryptfs support to both Grub and to your initrd, which is
 easy to do with the `mkinitrd` helper scripts.
 - [mkinitrd man page](http://man7.org/linux/man-pages/man8/mkinitrd.8.html)
 - [dracut man page](https://dracut.wiki.kernel.org/index.php/Main_Page)
+- [custom live debian](https://www.bustawin.com/create-a-custom-live-debian-9-the-pro-way/)
 
 ### Remote Datacenter protection
 If your deployment is in a remote datacenter, you can set up cryptofs
